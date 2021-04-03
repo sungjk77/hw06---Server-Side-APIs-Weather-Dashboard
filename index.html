@@ -1,17 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-</head>
-<body>
-    <main>
-        
-    </main>
-</body>
-<footer>
 
-</footer>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+ 
+
+  <title>Weather</title>
+</head>
+
+<body>
+    <div >
+    <div class="jumbotron jumbotron-fluid bg-secondary text-white p-3 mb-2">
+        <div class="container text-center">
+          <h1 class="">Weather Dashboard</h1>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="card max-width: 20rem;">
+      <div class=" ">
+        <div class="card-body bg-light">
+          <h5 class="card-title">Search for a City:</h5>
+
+
+          <div class="input-group">
+            <div class="form-outline">
+              <input id="search-input" type="search" id="form1" class="form-control" />
+            </div>
+            <button id="search-button" type="button" class="btn btn-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>          
+          
+          <p class="list-city list-group-flush">
+            <div>
+                <button type="button" class="btn btn-light btn-block my-1 text-left bg-white">Seattle</button>
+                <button type="button" class="btn btn-light btn-block my-1 text-left bg-white">Seattle</button>
+
+            </div>
+          </p>
+
+        </div>
+      </div>
+      </div>
+      
+      <div class="w-75 px-3 no-gutters">
+    <div class=container>
+
+        <div class="card border-dark mb-3" style="max-width: 60rem;">
+            <div class="card-header font-weight-bold" id="currentCityName"><h3>Seattle (4/1/2021) <i class="fas fa-cloud-sun"></i></h3></div>
+            <div class="card-body text-dark">
+              <p class="card-text">Temperature: <span id="currentCityTemp"></span></p>
+              <p class="card-text">Humidity: <span id="currentCityHumidity"></span></p>
+              <p class="card-text">Wind Speed: <span id="currentCityWind"></span></p>
+              <p class="card-text">UV Index: <span id="currentCityUV"></span></p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 60rem;">
+            <div class="card-body">
+              <h5 class="card-title">5-Day Forecast:</h5>
+
+
+              <div class="card-deck">
+                <div class="card bg-primary text-light">
+                  <div class="card-body">
+                    <h5 class="card-title">4/4/2021</h5>
+                    <p class="card-text"><i class="fas fa-sun"></i></p>
+                    <p class="card-text">Temp: 86.84</p>
+                    <p class="card-text">Humidity: 33%</p>
+                  </div>
+                </div>
+                <div class="card bg-primary text-light">
+                  <div class="card-body">
+                    <h5 class="card-title">4/4/2021</h5>
+                    <p class="card-text"><i class="fas fa-sun"></i></p>
+                    <p class="card-text">Temp: 86.84</p>
+                    <p class="card-text">Humidity: 33%</p>
+                  </div>
+                </div>
+                <div class="card bg-primary text-light">
+                  <div class="card-body">
+                    <h5 class="card-title">4/4/2021</h5>
+                    <p class="card-text"><i class="fas fa-sun"></i></p>
+                    <p class="card-text">Temp: 86.84</p>
+                    <p class="card-text">Humidity: 33%</p>
+                </div>
+                </div>
+                <div class="card bg-primary text-light">
+                  <div class="card-body">
+                    <h5 class="card-title">4/4/2021</h5>
+                    <p class="card-text"><i class="fas fa-sun"></i></p>
+                    <p class="card-text">Temp: 86.84</p>
+                    <p class="card-text">Humidity: 33%</p>
+                  </div>
+                </div>
+                <div class="card bg-primary text-light">
+                  <div class="card-body">
+                    <h5 class="card-title">4/4/2021</h5>
+                    <p class="card-text"><i class="fas fa-sun"></i></p>
+                    <p class="card-text">Temp: 86.84</p>
+                    <p class="card-text">Humidity: 33%</p>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+    </div>
+
+    </div>
+      </div>
+      </div>
+
+
+
+
+      <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                ...
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <footer class="footer text-right">
+          <span class="text-muted">version 0.03a</span>
+    </footer>
+</body>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<script src="./script.js"></script>
+
 </html>
