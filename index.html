@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="card max-width: 20rem;">
+        <div class="card w-25">
       <div class=" ">
         <div class="card-body bg-light">
           <h5 class="card-title">Search for a City:</h5>
@@ -52,17 +52,17 @@
       <div class="w-75 px-3 no-gutters">
     <div class=container>
 
-        <div class="card border-dark mb-3" style="max-width: 60rem;">
-            <div class="card-header font-weight-bold" id="currentCityName"><h3>Seattle (4/1/2021) <i class="fas fa-cloud-sun"></i></h3></div>
+        <div class="card border-dark mb-3" style="w-100">
+            <div class="card-header font-weight-bold"><h3><span id="currentCityName"></span> (<span id="day0-date"></span>) <img id="day0-icon" src=""></h3></div>
             <div class="card-body text-dark">
-              <p class="card-text">Temperature: <span id="currentCityTemp"></span></p>
-              <p class="card-text">Humidity: <span id="currentCityHumidity"></span></p>
-              <p class="card-text">Wind Speed: <span id="currentCityWind"></span></p>
-              <p class="card-text">UV Index: <span id="currentCityUV"></span></p>
+              <p class="card-text">Temperature: <span id="day0-temp"></span></p>
+              <p class="card-text">Humidity: <span id="day0-hum"></span></p>
+              <p class="card-text">Wind Speed: <span id="day0-wind"></span></p>
+              <p class="card-text">UV Index: <span id="day0-UV"></span></p>
             </div>
           </div>
 
-          <div class="card" style="width: 60rem;">
+          <div class="card" style= "w-100">
             <div class="card-body">
               <h5 class="card-title">5-Day Forecast:</h5>
 
@@ -70,90 +70,66 @@
               <div class="card-deck">
                 <div class="card bg-primary text-light">
                   <div class="card-body">
-                    <h5 class="card-title">4/4/2021</h5>
-                    <p class="card-text"><i class="fas fa-sun"></i></p>
-                    <p class="card-text">Temp: 86.84</p>
-                    <p class="card-text">Humidity: 33%</p>
+                    <h5 class="card-text"><span id="day1-date"></span></h5>
+                    <p class="card-text"><img id="day1-icon" src=""></i></p>
+                    <p class="card-text" id="day1-temp"></p>
+                    <p class="card-text" id="day1-hum"></p>
                   </div>
                 </div>
                 <div class="card bg-primary text-light">
-                  <div class="card-body">
-                    <h5 class="card-title">4/4/2021</h5>
-                    <p class="card-text"><i class="fas fa-sun"></i></p>
-                    <p class="card-text">Temp: 86.84</p>
-                    <p class="card-text">Humidity: 33%</p>
+                    <div class="card-body">
+                      <h5 class="card-text" id="day2-date"></h5>
+                      <p class="card-text"><img id="day2-icon" src=""></i></p>
+                      <p class="card-text" id="day2-temp"></p>
+                      <p class="card-text" id="day2-hum"></p>
+                    </div>
                   </div>
-                </div>
-                <div class="card bg-primary text-light">
-                  <div class="card-body">
-                    <h5 class="card-title">4/4/2021</h5>
-                    <p class="card-text"><i class="fas fa-sun"></i></p>
-                    <p class="card-text">Temp: 86.84</p>
-                    <p class="card-text">Humidity: 33%</p>
-                </div>
-                </div>
-                <div class="card bg-primary text-light">
-                  <div class="card-body">
-                    <h5 class="card-title">4/4/2021</h5>
-                    <p class="card-text"><i class="fas fa-sun"></i></p>
-                    <p class="card-text">Temp: 86.84</p>
-                    <p class="card-text">Humidity: 33%</p>
+                  <div class="card bg-primary text-light">
+                    <div class="card-body">
+                      <h5 class="card-text" id="day3-date"></h5>
+                      <p class="card-text"><img id="day3-icon" src=""></i></p>
+                      <p class="card-text" id="day3-temp"></p>
+                      <p class="card-text" id="day3-hum"></p>
+                    </div>
                   </div>
-                </div>
-                <div class="card bg-primary text-light">
-                  <div class="card-body">
-                    <h5 class="card-title">4/4/2021</h5>
-                    <p class="card-text"><i class="fas fa-sun"></i></p>
-                    <p class="card-text">Temp: 86.84</p>
-                    <p class="card-text">Humidity: 33%</p>
+                  <div class="card bg-primary text-light">
+                    <div class="card-body">
+                      <h5 class="card-text" id="day4-date"></h5>
+                      <p class="card-text"><img id="day4-icon" src=""></i></p>
+                      <p class="card-text" id="day4-temp"></p>
+                      <p class="card-text" id="day4-hum"></p>
+                    </div>
                   </div>
-                </div>
+                  <div class="card bg-primary text-light">
+                    <div class="card-body">
+                      <h5><span class="card-text" id="day5-date"></span></h5>
+                      <p class="card-text"><img id="day5-icon" src=""></i></p>
+                      <p class="card-text" id="day5-temp"></p>
+                      <p class="card-text" id="day5-hum"></p>
+                    </div>
+                  </div>
               </div>
 
 
 
             </div>
           </div>
-
     </div>
 
     </div>
       </div>
       </div>
 
-
-
-
-      <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                ...
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+  
 
     <footer class="footer text-right">
-          <span class="text-muted">version 0.03a</span>
+          <span class="text-muted">version 0.05a</span>
     </footer>
 </body>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-<script src="./script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="./assets/js/script.js"></script>
 
 </html>
