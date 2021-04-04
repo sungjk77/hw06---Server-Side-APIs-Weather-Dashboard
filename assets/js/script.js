@@ -3,13 +3,7 @@ var resultTextEl = document.querySelector('#currentCityName');
 var currentCityName;
 var APIkey = '23b89ccd37ecfa0524d0c35eae3690f8';
 var weather = [];
-var varLat = 33.441792;
-var varLon = -94.037689;
-
-// function kelvinToFahr(varKel) {
-//     var fahr = ((varKel-273.15) * 9 / 5)+32;
-//     return Math.round(fahr);
-// };
+var cityList = [];
 
 function displayWeather(weather) {
     $("#day0-wind").text(weather[0].wind);
@@ -30,11 +24,23 @@ function displayWeather(weather) {
         $(`#day`+i+`-icon`).attr("src",weather[i].icon);
     }
 }
+function showCityList(cityList) {
+    var varText = "";
+    for (var i = 0; i < cityList.length; i++) {
+      varText += `<li class="btn list-group-item list-group-item-action" onclick="searchApi('`+cityList[i]+`')">`+cityList[i]+`</li>`;
+    }
+    $(`#cityListGroup`).html(varText);
+}
+
+function updateCityList(currentCityName) {
+    cityList.indexOf(currentCityName) === -1 ? cityList.push(currentCityName) : console.log("City already on list")
+    localStorage.setItem("cityList", JSON.stringify(cityList)); //saves cityList
+    showCityList(cityList);
+}
 
 function searchApi2(varLat, varLon, currentCityName) {
     var locQueryUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=`+varLat+`&lon=`+varLon+`&exclude=hourly&units=imperial&appid=23b89ccd37ecfa0524d0c35eae3690f8`;
     
-    console.log(`Lat: `+varLat+` Lon:`+varLon)
     fetch(locQueryUrl)
       .then(function (response) {
         console.log(response)
@@ -49,6 +55,7 @@ function searchApi2(varLat, varLon, currentCityName) {
         // resultTextEl.textContent = locRes.city.name;
         console.log(locRes);
         weather = [];
+        updateCityList(currentCityName);
         for (var i = 0; i < 7; i++) {
              var wDay = {
                  "date":locRes.daily[i].dt,
@@ -59,12 +66,12 @@ function searchApi2(varLat, varLon, currentCityName) {
                  "icon":`http://openweathermap.org/img/wn/`+locRes.daily[i].weather[0].icon+`.png`
              }
         //    wDay.temp=kelvinToFahr(wDay.temp);
-           wDay.date=wDay.date * 1000;
-           const dateObject = new Date(wDay.date);
-           wDay.date=dateObject.toLocaleDateString();
-           weather.push(wDay);
-         }   
-      
+        wDay.date=wDay.date * 1000;
+        const dateObject = new Date(wDay.date);
+        wDay.date=dateObject.toLocaleDateString();
+        weather.push(wDay);
+        }   
+
         console.log(weather);
         displayWeather(weather);
   
@@ -100,9 +107,8 @@ function searchApi(query) {
         varLat = locRes.city.coord.lat;
         varLon = locRes.city.coord.lon;
         currentCityName = query;
-        console.log(currentCityName + `located at:`+varLat+`x`+ varLon);
+        console.log(currentCityName + ` located at:`+varLat+`x`+ varLon);
         searchApi2(varLat, varLon, currentCityName);
-        // displayWeather(weather);
     })
       .catch(function (error) {
         console.error(error);
@@ -119,8 +125,18 @@ function handleSearchFormSubmit(event) {
     }
     searchApi(searchInputVal);
   }
-  
-  searchFormEl.addEventListener('submit', handleSearchFormSubmit);
-  
 
+function loadCityList(cityList) {  //function to load the text from memory
+    cityList = JSON.parse(localStorage.getItem("cityList"));
+    if(!cityList) {  //check to see if the variable exists
+        console.log("- No saved information"); //prints error message in console
+        return cityList;
+    }
+    console.log(cityList);
+    return cityList;
+}
+searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+
+cityList = loadCityList(cityList);
 searchApi("Seattle");
+
