@@ -1,4 +1,4 @@
-var searchFormEl = document.querySelector('#search-input');
+var searchFormEl = document.querySelector('#search-city');
 var resultTextEl = document.querySelector('#currentCityName');
 var currentCityName;
 var APIkey = '23b89ccd37ecfa0524d0c35eae3690f8';
@@ -6,23 +6,10 @@ var weather = [];
 var varLat = 33.441792;
 var varLon = -94.037689;
 
-function handleSearchFormSubmit(event) {
-  event.preventDefault();
-  var searchInputVal = document.querySelector('#search-input').value;
-  if (!searchInputVal) {
-    console.error('You need a search input value!');
-    return;
-  }
-
-  searchApi(searchInputVal);
-}
-
-searchFormEl.addEventListener('submit', handleSearchFormSubmit);
-
-function kelvinToFahr(varKel) {
-    var fahr = ((varKel-273.15) * 9 / 5)+32;
-    return Math.round(fahr);
-};
+// function kelvinToFahr(varKel) {
+//     var fahr = ((varKel-273.15) * 9 / 5)+32;
+//     return Math.round(fahr);
+// };
 
 function displayWeather(weather) {
     $("#day0-wind").text(weather[0].wind);
@@ -61,6 +48,7 @@ function searchApi2(varLat, varLon, currentCityName) {
          // write query to page so user knows what they are viewing
         // resultTextEl.textContent = locRes.city.name;
         console.log(locRes);
+        weather = [];
         for (var i = 0; i < 7; i++) {
              var wDay = {
                  "date":locRes.daily[i].dt,
@@ -109,11 +97,12 @@ function searchApi(query) {
         return response.json();
       })
       .then(function (locRes) {
-        console.log(locRes);
         varLat = locRes.city.coord.lat;
         varLon = locRes.city.coord.lon;
         currentCityName = query;
+        console.log(currentCityName + `located at:`+varLat+`x`+ varLon);
         searchApi2(varLat, varLon, currentCityName);
+        // displayWeather(weather);
     })
       .catch(function (error) {
         console.error(error);
@@ -121,4 +110,17 @@ function searchApi(query) {
 
 }
 
-searchApi("Chicago");
+function handleSearchFormSubmit(event) {
+    event.preventDefault();
+    var searchInputVal = document.querySelector('#search-input').value;
+    if (!searchInputVal) {
+      console.error('You need a search input value!');
+      return;
+    }
+    searchApi(searchInputVal);
+  }
+  
+  searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+  
+
+searchApi("Seattle");
