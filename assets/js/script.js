@@ -109,8 +109,6 @@ function searchApi(query) {
         return response.json();
       })
       .then(function (locRes) {
-         // write query to page so user knows what they are viewing
-        // resultTextEl.textContent = locRes.city.name;
         console.log(locRes);
         varLat = locRes.city.coord.lat;
         varLon = locRes.city.coord.lon;
@@ -123,4 +121,4 @@ function searchApi(query) {
 
 }
 
-searchApi("Seattle");
+searchApi("Chicago");
