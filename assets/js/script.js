@@ -27,7 +27,7 @@ function displayWeather(weather) {
 function showCityList(cityList) {
     var varText = "";
     for (var i = 0; i < cityList.length; i++) {
-      varText += `<li class="btn list-group-item list-group-item-action" onclick="searchApi('`+cityList[i]+`')">`+cityList[i]+`</li>`;
+      varText += `<li class="btn list-group-item list-group-item-action d-flex justify-content-between align-items-center" onclick="searchApi('`+cityList[i]+`')">`+cityList[i]+`</li>`;
     }
     $(`#cityListGroup`).html(varText);
 }
@@ -130,9 +130,9 @@ function loadCityList(cityList) {  //function to load the text from memory
     cityList = JSON.parse(localStorage.getItem("cityList"));
     if(!cityList) {  //check to see if the variable exists
         console.log("- No saved information"); //prints error message in console
+        cityList=[];
         return cityList;
     }
-    console.log(cityList);
     return cityList;
 }
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
