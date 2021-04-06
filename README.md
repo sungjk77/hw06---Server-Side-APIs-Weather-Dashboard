@@ -1,7 +1,7 @@
 # hw06---Server-Side-APIs-Weather-Dashboard
 Found live at: https://sungjk77.github.io/hw06---Server-Side-APIs-Weather-Dashboard/
 
-GitHub address: https://github.com/sungjk77/hw05-Third-Party-APIs-Work-Day-Scheduler
+GitHub address: https://github.com/sungjk77/hw06---Server-Side-APIs-Weather-Dashboard
 
 Screenshot: assets\images\screenshot.JPG
 
@@ -29,5 +29,5 @@ last modified: 4/4/2021 @ 10:24 AM PST
 
 ------------
 ## 📸 _**Screen Shot:**_
-![alt text](https://raw.githubusercontent.com/sungjk77/hw05-Third-Party-APIs-Work-Day-Scheduler/main/assets/images/screenshot.JPG)
+![alt text](https://raw.githubusercontent.com/sungjk77/hw06---Server-Side-APIs-Weather-Dashboard/main/assets/images/screenshot.JPG)
 
