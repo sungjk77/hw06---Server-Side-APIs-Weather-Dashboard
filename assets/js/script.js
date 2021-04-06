@@ -60,7 +60,7 @@ function searchApi2(varLat, varLon, currentCityName) {  //have to search onecal 
                  "hum":locRes.daily[i].humidity+`%`,
                  "wind":locRes.daily[i].wind_speed+` MPH`,
                  "UV":locRes.daily[i].uvi,
-                 "icon":`http://openweathermap.org/img/wn/`+locRes.daily[i].weather[0].icon+`.png`
+                 "icon":`https://openweathermap.org/img/wn/`+locRes.daily[i].weather[0].icon+`.png`
              }
         wDay.date=wDay.date * 1000;
         const dateObject = new Date(wDay.date);
